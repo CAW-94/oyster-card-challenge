@@ -48,7 +48,20 @@ public class TubeJourneyTest {
     public void travellingInOneZoneChargesCorrectFare(){
         Station station = new Station("Hammersmith");
         TubeJourney journey = new TubeJourney(station, station);
-        assertEquals(BigDecimal.valueOf(2),journey.calculateFare());
+        assertEquals(BigDecimal.valueOf(2),journey.determineFare());
+    }
+
+    @Test
+    public void travellingInBoundaryStationChargesLowestFare(){
+        Station station1 = new Station("Holborn");
+        Station station2 = new Station("Earl's Court");
+        Station station3 = new Station("Hammersmith");
+
+        TubeJourney journey = new TubeJourney(station1, station2);
+        TubeJourney journey2 = new TubeJourney(station2, station3);
+
+        assertEquals(BigDecimal.valueOf(2.5),journey.determineFare());
+        assertEquals(BigDecimal.valueOf(2),journey2.determineFare());
     }
 
 }

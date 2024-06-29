@@ -33,11 +33,15 @@ public class TubeJourney extends Journey{
             }
 
     public BigDecimal determineFare(){
-        int numFares = this.startStation.getZone().size() + this.endStation.getZone().size();
-        if(numFares == 2){
-            return calculateFare();
+        if(this.startStation == null){
+            return fares.get("max");
         }
-        else return calculateBoundaryFare();
+        else {
+            int numFares = this.startStation.getZone().size() + this.endStation.getZone().size();
+            if (numFares == 2) {
+                return calculateFare();
+            } else return calculateBoundaryFare();
+        }
     }
 
     private BigDecimal calculateBoundaryFare(){
@@ -51,7 +55,6 @@ public class TubeJourney extends Journey{
     }
 
     private BigDecimal calculateFare(){
-        if(!(this.startStation == null)){
         if((this.startStation.getZone().contains(1) && this.endStation.getZone().contains(3))
                 || (this.startStation.getZone().contains(3) && this.endStation.getZone().contains(1))){
             return fares.get("max");
@@ -68,8 +71,6 @@ public class TubeJourney extends Journey{
             return fares.get("zone1");
         }
         else return fares.get("oneZone");
-        }
-        else return fares.get("max");
     }
 
 
