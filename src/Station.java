@@ -8,11 +8,11 @@ public class Station {
     String name;
     Set<Integer> zone;
     BigDecimal minFare;
-    Map<String, Set<Integer>> zones = new HashMap<String, Set<Integer>>(){{
-        put("Holborn",Set.of(1));
-        put("Earl's Court",Set.of(1,2));
-        put("Wimbledon",Set.of(3));
-        put("Hammersmith",Set.of(2));
+    Map<String, Set<Integer>> zones = new HashMap<>() {{
+        put("Holborn", Set.of(1));
+        put("Earl's Court", Set.of(1, 2));
+        put("Wimbledon", Set.of(3));
+        put("Hammersmith", Set.of(2));
     }};
 
 

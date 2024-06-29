@@ -41,7 +41,7 @@ public class TubeJourneyTest {
     public void travellingInZoneOneChargesCorrectFare(){
         Station station = new Station("Holborn");
         TubeJourney journey = new TubeJourney(station, station);
-        assertEquals(BigDecimal.valueOf(2.5),journey.calculateFare());
+        assertEquals(BigDecimal.valueOf(2.5),journey.determineFare());
     }
 
     @Test

@@ -1,4 +1,4 @@
-import org.jetbrains.annotations.NotNull;
+
 
 import java.math.BigDecimal;
 
@@ -20,7 +20,7 @@ public class Card {
         System.out.println("Your balance is: £" + this.balance.setScale(2) + "\n");
     }
 
-    public void addBalance(@NotNull BigDecimal credit){
+    public void addBalance( BigDecimal credit){
         this.balance = this.balance.add(credit);
     }
 
@@ -32,7 +32,7 @@ public class Card {
         if(!canRemoveBalance(fare)){throw new IllegalArgumentException("Balance: " + this.balance.setScale(2) + " Fare: " + fare.setScale(2));}
         }
 
-    public void removeBalance(@NotNull BigDecimal fare){
+    public void removeBalance( BigDecimal fare){
         this.balance = this.balance.subtract(fare);
     }
 }
