@@ -35,6 +35,15 @@ public class CardTest {
 
     @Test
     public void removeBalanceSubtractsZonedFare(){
+        Card card= new Card(BigDecimal.valueOf(10));
+        Station station1 = new Station("Holborn");
+        Station station2 = new Station("Wimbledon");
+        TubeJourney journey = new TubeJourney(station1, station2);
+
+        card.removeBalance(journey.determineFare());
+
+        assertEquals(BigDecimal.valueOf(6.80).setScale(2),card.getBalance().setScale(2));
+
 
     }
 

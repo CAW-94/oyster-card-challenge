@@ -77,4 +77,19 @@ public class TubeJourneyTest {
 
     }
 
+    @Test
+    public void tapInWithoutTapOutChargesMaxFare(){
+        Station startStation = new Station("Hammersmith");
+        Station endStation = new Station("Wimbledon");
+        TubeJourney journey = new TubeJourney();
+        Card card = new Card(BigDecimal.valueOf(20));
+
+        journey.tapIn(card, startStation);
+        journey.tapIn(card, endStation);
+        journey.tapOut(card, startStation);
+
+        assertEquals(BigDecimal.valueOf(14.55),card.getBalance());
+
+    }
+
 }
