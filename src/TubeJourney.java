@@ -1,11 +1,8 @@
 import java.math.BigDecimal;
-import java.util.Set;
 
 public class TubeJourney extends Journey{
-    public Station startStation;
-    public Station endStation;
-    public Set<Integer> zones;
-    public BigDecimal fare;
+    private Station startStation;
+    private Station endStation;
     private Boolean tappedIn = false;
 
     public TubeJourney(){
@@ -16,12 +13,16 @@ public class TubeJourney extends Journey{
         this.endStation = endStation;
     }
 
-    public Boolean tapIn(Card card, Station startStation){
+    public void travel(Card card, Station startStation, Station endStation){
+        tapIn(card, startStation);
+        tapOut(card, endStation);
+    }
+
+    public void tapIn(Card card, Station startStation){
         this.startStation = startStation;
         card.checkBalance(this.startStation.getminFare());
         card.removeBalance(fares.get("max"));
         this.tappedIn = true;
-        return this.tappedIn;
     }
 
     public void tapOut(Card card, Station endStation){
