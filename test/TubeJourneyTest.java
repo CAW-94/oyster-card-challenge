@@ -64,4 +64,17 @@ public class TubeJourneyTest {
         assertEquals(BigDecimal.valueOf(2),journey2.determineFare());
     }
 
+    @Test
+    public void usingTravelMethodChargesCorrectAmount(){
+        Station station1 = new Station("Holborn");
+        Station station2 = new Station("Earl's Court");
+        TubeJourney journey = new TubeJourney();
+        Card card = new Card(BigDecimal.valueOf(10));
+
+        journey.travel(card, station1, station2);
+
+        assertEquals(BigDecimal.valueOf(7.50),card.getBalance());
+
+    }
+
 }

@@ -21,6 +21,9 @@ public class Main {
         journeyTube.tapOut(oysterCard,stationEC);
         System.out.printf("Tapped out at " + stationEC.getName());
 
+        //OR
+        journeyTube.travel(oysterCard,stationHol,stationEC);
+
         //Make bus journey from Earl's Court to Chelsea
         journeyBus.travel();
         System.out.println("\nBus journey");
@@ -36,7 +39,6 @@ public class Main {
         System.out.println("Tapped out at " + stationHam.getName());
 
         //Check balance
-
         oysterCard.checkBalance();
 }
 }
