@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Card {
 
@@ -15,7 +16,7 @@ public class Card {
     }
 
     public void checkBalance(){
-        System.out.println("Your balance is: £" + this.balance.setScale(2) + "\n");
+        System.out.println("Your balance is: £" + this.balance.setScale(2, RoundingMode.HALF_EVEN) + "\n");
     }
 
     public void addBalance( BigDecimal credit){
@@ -27,7 +28,7 @@ public class Card {
     }
 
     public void checkBalance(BigDecimal fare){
-        if(!canRemoveBalance(fare)){throw new IllegalArgumentException("Balance: " + this.balance.setScale(2) + " Fare: " + fare.setScale(2));}
+        if(!canRemoveBalance(fare)){throw new IllegalArgumentException("Balance: " + this.balance.setScale(2, RoundingMode.HALF_EVEN) + " Fare: " + fare.setScale(2, RoundingMode.HALF_EVEN));}
         }
 
     public void removeBalance( BigDecimal fare){

@@ -2,9 +2,10 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+@SuppressWarnings("unused")
 public abstract class Journey {
 
-    Map<String, BigDecimal> fares = new HashMap<>() {{
+    final Map<String, BigDecimal> fares = new HashMap<>() {{
         put("bus", BigDecimal.valueOf(1.80));
         put("max", BigDecimal.valueOf(3.20));
         put("zone1", BigDecimal.valueOf(2.50));
@@ -13,9 +14,4 @@ public abstract class Journey {
         put("twoZoneIncl", BigDecimal.valueOf(3));
     }};
 
-    void travel(){}
-
-    BigDecimal getFare(){
-        return null;
-    }
 }

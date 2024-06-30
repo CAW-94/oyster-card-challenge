@@ -1,7 +1,6 @@
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,8 +31,10 @@ public class TubeJourneyTest {
     @Test
     public void tappingInWithoutMinFareThrowsError(){
         TubeJourney journey = new TubeJourney();
-        Card oysterCard = new Card(BigDecimal.valueOf(30));
-        Station station1 = new Station("Wimbledon");
+        Card oysterCard = new Card(BigDecimal.valueOf(2));
+        Station station1 = new Station("Holborn");
+
+        assertThrows(IllegalArgumentException.class, () -> journey.tapIn(oysterCard, station1));
 
     }
 

@@ -1,7 +1,7 @@
 import org.junit.Test;
 
-import javax.swing.*;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,7 +29,7 @@ public class CardTest {
 
         card.removeBalance(fare);
 
-        assertEquals(BigDecimal.valueOf(8.20).setScale(2),card.getBalance());
+        assertEquals(BigDecimal.valueOf(8.20).setScale(2, RoundingMode.HALF_EVEN),card.getBalance());
 
     }
 
@@ -42,7 +42,7 @@ public class CardTest {
 
         card.removeBalance(journey.determineFare());
 
-        assertEquals(BigDecimal.valueOf(6.80).setScale(2),card.getBalance().setScale(2));
+        assertEquals(BigDecimal.valueOf(6.80).setScale(2, RoundingMode.HALF_EVEN),card.getBalance().setScale(2, RoundingMode.HALF_EVEN));
 
 
     }

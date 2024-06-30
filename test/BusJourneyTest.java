@@ -1,7 +1,7 @@
 import org.junit.Test;
 
-import javax.swing.*;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,7 +10,7 @@ public class BusJourneyTest {
     @Test
     public void getFareReturnsBusFare(){
         BusJourney journey = new BusJourney();
-        assertEquals(BigDecimal.valueOf(1.80).setScale(2),journey.getFare());
+        assertEquals(BigDecimal.valueOf(1.80).setScale(2, RoundingMode.HALF_EVEN),journey.getFare());
 
     }
 

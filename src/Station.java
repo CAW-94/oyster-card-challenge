@@ -5,10 +5,10 @@ import java.util.Set;
 
 public class Station {
 
-    String name;
-    Set<Integer> zone;
+    final String name;
+    final Set<Integer> zone;
     BigDecimal minFare;
-    Map<String, Set<Integer>> zones = new HashMap<>() {{
+    final Map<String, Set<Integer>> zones = new HashMap<>() {{
         put("Holborn", Set.of(1));
         put("Earl's Court", Set.of(1, 2));
         put("Wimbledon", Set.of(3));
