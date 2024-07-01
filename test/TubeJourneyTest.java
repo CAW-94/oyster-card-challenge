@@ -57,12 +57,15 @@ public class TubeJourneyTest {
         Station station1 = new Station("Holborn");
         Station station2 = new Station("Earl's Court");
         Station station3 = new Station("Hammersmith");
+        Station station4 = new Station("Wimbledon");
 
         TubeJourney journey = new TubeJourney(station1, station2);
         TubeJourney journey2 = new TubeJourney(station2, station3);
+        TubeJourney journey3 = new TubeJourney(station2, station4);
 
         assertEquals(BigDecimal.valueOf(2.5),journey.determineFare());
         assertEquals(BigDecimal.valueOf(2),journey2.determineFare());
+        assertEquals(BigDecimal.valueOf(2.25),journey3.determineFare());
     }
 
     @Test

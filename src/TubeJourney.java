@@ -50,9 +50,13 @@ public class TubeJourney extends Journey{
         if(this.startStation.getZone().size() == 2 && this.endStation.getZone().contains(1)
                 || this.endStation.getZone().size() == 2 && this.startStation.getZone().contains(1)){
             return fares.get("zone1");
+            //if travelling to EC from zone 2 and vice versa, oneZone fare applies
+        } else if(this.startStation.getZone().size() == 2 && this.endStation.getZone().contains(2)
+                || this.endStation.getZone().size() == 2 && this.startStation.getZone().contains(2)){
+            return fares.get("oneZone");
         }
-        //if travelling to EC from zone 2 and vice versa, oneZone fare applies
-        else return fares.get("oneZone");
+        //if travelling to EC from zone 3 and vice versa, two Zone excl zone 1 fare applies
+        else return fares.get("twoZoneExcl");
     }
 
     private BigDecimal calculateFare(){
@@ -60,15 +64,15 @@ public class TubeJourney extends Journey{
                 || (this.startStation.getZone().contains(3) && this.endStation.getZone().contains(1))){
             return fares.get("max");
         }
-        if((this.startStation.getZone().contains(1) && this.endStation.getZone().contains(2))
+        else if((this.startStation.getZone().contains(1) && this.endStation.getZone().contains(2))
                 || (this.startStation.getZone().contains(2) && this.endStation.getZone().contains(1))){
             return fares.get("twoZoneIncl");
         }
-        if((this.startStation.getZone().contains(2) && this.endStation.getZone().contains(3))
+        else if((this.startStation.getZone().contains(2) && this.endStation.getZone().contains(3))
                 || (this.startStation.getZone().contains(3) && this.endStation.getZone().contains(2))){
             return fares.get("twoZoneExcl");
         }
-        if(this.startStation.getZone().contains(1) && this.endStation.getZone().contains(1)){
+        else if(this.startStation.getZone().contains(1) && this.endStation.getZone().contains(1)){
             return fares.get("zone1");
         }
         else return fares.get("oneZone");
