@@ -17,5 +17,6 @@ This repo models a limited version of the London Oyster Card system
 
 #### Assumptions:
 1. All bus journeys cost the same, therefore you only tap IN to a bus & not tap OUT.
+2. When a tube station is in two zones, the fare charged is the minimum of possible fares.
 
 
